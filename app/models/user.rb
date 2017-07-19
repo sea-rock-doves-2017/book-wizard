@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  has_many :books
+  has_many :reviews
+  has_many :books, through: :reviews
   validates :username, :email, { presence: true, uniqueness: true }
-  validates :hashed_password, presence: true
+  validates :password, presence: true
+  has_secure_password
 end
