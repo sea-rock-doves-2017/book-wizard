@@ -5,14 +5,14 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new'
 
   resources :genres, shallow: true do
-    resources :books
-    resources :reviews
+    resources :books do
+      resources :reviews
+    end
   end
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
-
 
   root 'books#index'
 

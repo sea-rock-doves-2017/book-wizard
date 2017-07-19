@@ -1,5 +1,11 @@
 <h2>BookWizard</h2>
 
-<div class='books-container-'
-<%= @books.each do |book| %>
-<% end %>
+<div class='books-container'>
+  <%= @books.each do |book| %>
+    <%= book.title %>
+    <p>
+      <%= book.author %>
+    </p>
+
+  <% end %>
+</div>
