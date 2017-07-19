@@ -13,7 +13,7 @@ require 'faker'
 end
 
 20.times do
-  Genre.create(type: Faker::Book.genre)
+  Genre.create(name: Faker::Book.genre)
 end
 
 50.times do
