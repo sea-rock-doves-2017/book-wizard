@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new'
 
   resources :books, only: [:index, :show]
+
+  resources :books do
+    resources :reviews
+  end
+
 end
