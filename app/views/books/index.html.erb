@@ -11,7 +11,11 @@
 
 
 <div>
-  <%= link_to 'Log In', login_path  %>
-  <%= link_to 'Sign Up', new_user_path %>
-  <%= link_to 'Log Out', logout_path %>
+  <% if session[:user_id] != nil %>
+    <%= link_to 'Log Out', logout_path %>
+  <% else %>
+    <%= link_to 'Log In', login_path  %>
+    <%= link_to 'Sign Up', new_user_path %>
+  <% end %>
+
 </div>
