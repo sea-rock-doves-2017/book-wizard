@@ -2,7 +2,7 @@
 
 <div class='books-container'>
   <%= @books.each do |book| %>
-    <%= book.title %>
+    <%= link_to book.title, book_path(book) %>
     <p>
       <%= book.author %>
     </p>
