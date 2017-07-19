@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe BooksController do
-  let!(:genre1) { Genre.create!(name: 'Fiction')}
-  let!(:book1) { Book.create!(title: "B", author: "G", synopsis: "X", genre_id: genre1.id)}
+  let!(:genre) { Genre.create!(name: 'Fiction')}
+  let!(:book) { Book.create!(title: "B", author: "G", synopsis: "X", genre_id: genre.id)}
 
   describe "GET #index" do
 
@@ -25,6 +25,22 @@ describe BooksController do
   end
 
   describe "GET #show" do
+
+    it "responds with status code 302" do
+      get :show, { id: book.id }
+      expect(response.status).to eq 200
+    end
+
+    it "assigns the correct book as @book" do
+      get :show, { id: book.id }
+      expect(assigns(:book)).to eq(book)
+    end
+
+    it "renders the :show template" do
+      get :show, { id: book.id }
+      expect(response).to render_template(:show)
+    end
+
   end
 
 end
