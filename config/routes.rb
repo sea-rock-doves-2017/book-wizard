@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   get '/register', to: 'users#new'
 
-  resources :books do
+  resources :genres, shallow: true do
+    resources :books
     resources :reviews
   end
 
