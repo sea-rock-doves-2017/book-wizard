@@ -1,4 +1,17 @@
-<%= @book.title %>
-<%= @book.author %>
-<%= @book.synopsis %>
-<%= Genre.find(@book.genre_id).name %>
+<em><h2><%= @book.title %></h2></em>
+Author: <%= @book.author %>
+<p>
+  Genre: <%= Genre.find(@book.genre_id).name %>
+</p>
+"<%= @book.synopsis %>"
+<p>
+  <h4>User Reviews</h4>
+  <div class='reviews'>
+    <% @reviews.each do |review| %>
+      <%= review.body %>
+      <p>
+        <em><%= User.find(review.user_id).username %></em>
+      </p>
+    <% end %>
+  </div>
+</p>
