@@ -10,11 +10,15 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-    if @review.save
-      render 'show'
+    if session[:user_id]
+      @review = Review.new(review_params)
+      if @review.save
+        render 'show'
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      redirect_to '/login'
     end
   end
 
