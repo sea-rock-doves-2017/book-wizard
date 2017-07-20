@@ -5,5 +5,8 @@ class Book < ApplicationRecord
 
   validates :title, :author, { presence: true }
 
+  def self.search(search)
+    Book.where()
+  end
 
 end

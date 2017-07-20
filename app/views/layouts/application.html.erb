@@ -6,9 +6,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <div class='nav'>
+      <%= form_tag(books_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search by author or title" %>
+      <%= submit_tag "Search", :name => nil %>
+      <% end %>
+    </div>
+
   </head>
 
   <body>
     <%= yield %>
   </body>
 </html>
+
+<!-- USE THIS LINK: http://www.rymcmahon.com/articles/2 -->
